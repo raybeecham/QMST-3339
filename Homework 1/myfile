@@ -1,0 +1,229 @@
+# Create data frame "sn" from CSV file w/headers
+sn <- read.csv("social_network.csv", header = T)
+site.freq <- table(sn$Site)  # Creates table from Site
+barplot(site.freq)  # Creates barplot in new window
+? barplot  # For more information on customizing graph
+# To put the bars in descending order, add "order":
+barplot(site.freq[order(site.freq, decreasing = T)])
+# Draw the bars horizontally (but turn off decreasing)
+barplot(site.freq[order(site.freq)], horiz = T)
+# Make Facebook blue and all others gray by specifying a
+# vector with named colors for gray and RGB for Facebook blue
+# fbba = "Facebook blue/ascending" for horizontal bars
+# And now breaking code across lines for clarity
+fbba <- c(rep("gray", 5),
+rgb(59, 89, 152, maxColorValue = 255))
+barplot(site.freq[order(site.freq)],
+horiz = T,
+col = fbba)
+barplot(site.freq[order(site.freq)],
+horiz = T,         # Horizontal
+col = fbba,        # Use colors "fbba"
+border = NA,       # No borders
+xlim = c(0, 100),  # Scale from 0-100
+main = "Preferred Social Networking Site\nA Survey of 202 Users",
+xlab = "Number of Users")
+barplot(site.freq[order(site.freq)],
+horiz = T,
+col = fbba)
+# R as a calculator
+(7 - 8) + 5^3 - 5/6 + sqrt(62)
+log(3) - sqrt(2) * sin(pi) - exp(3)
+round((7 - 8) + 5^3 - 5/6 + sqrt(62), 2)
+# R as a calculator
+(7 - 8) + 5^3 - 5/6 + sqrt(62)
+log(3) - sqrt(2) * sin(pi) - exp(3)
+round((7 - 8) + 5^3 - 5/6 + sqrt(62), 2)
+#Vectors
+#Create a vector named `countby5` that is a sequence of 5 to 100 in steps of 5.
+countby5 <- seq(from = 5, to = 100, by = 5)
+countby5
+#Create a vector named Treatment with the entries "Treatment One" appearing 20 times, "Treatment Two" appearing 18 times, and "Treatment Three" appearing 22 times.
+Treatment <- rep(c("Treatment One", "Treatment Two", "Treatment Three"), c(20, 18, 22))
+print(Treatment)
+library("stats", lib.loc="C:/Program Files/R/R-3.4.3/library")
+# R as a calculator
+(7 - 8) + 5^3 - 5/6 + sqrt(62)
+log(3) - sqrt(2) * sin(pi) - exp(3)
+round((7 - 8) + 5^3 - 5/6 + sqrt(62), 2)
+#Vectors
+#Create a vector named `countby5` that is a sequence of 5 to 100 in steps of 5.
+countby5 <- seq(from = 5, to = 100, by = 5)
+countby5
+#Learning R within R
+install.packages("swirl")
+swirl()
+library(swirl)
+library("stats", lib.loc="C:/Program Files/R/R-3.4.3/library")
+(7 - 8) + 5^3 - 5/6 + sqrt(62)
+log(3) - sqrt(2) * sin(pi) - exp(3)
+round((7 - 8) + 5^3 - 5/6 + sqrt(62), 2)
+countby5 <- seq(from = 5, to = 100, by = 5)
+countby5
+#Create a vector named Treatment with the entries "Treatment One" appearing 20 times, "Treatment Two" appearing 18 times, and "Treatment Three" appearing 22 times.
+Treatment <- rep(c("Treatment One", "Treatment Two", "Treatment Three"), c(20, 18, 22))
+print(Treatment)
+xtabs(~Treatment) # count the number of appearences
+#Assign the names x and y to the values 5 and 7, respectively. Find x^y and assign the result to z. What is the valued stored in z?
+x <- 5
+x = 5
+y <- 7
+z <- x^y
+print(z)
+# Correct answer is here  ********** Since we tested two independent samples the null hypothesis
+# is we should have similar mean concluding similar means. Our alternative hypothesis is that
+# The two regions will differ in levels of pollution. We see that from the P-value
+# we conclude that the pollutions differ in region and this could be due to environmental factors in these
+# two regions
+# The p-value
+t.test(pE$pm25[1:134], pW$pm25[1:134], paired=TRUE, var.equal = FALSE)
+# Third Attempt
+pW = subset(pollution, region == "west")
+pE = subset(pollution, region == "east")
+# Set wd and retrieve csv file.
+pollution <- read.csv(file = "avgpm25.csv", header = T)
+attach(pollution)
+setwd("C:/Users/raybe/Desktop/QMST 3339 Files/Homework 1")
+# Set wd and retrieve csv file.
+pollution <- read.csv(file = "avgpm25.csv", header = T)
+attach(pollution)
+# Athena Attempt
+var_east <- pollution$pm25 [pollution$region=="east"]
+var_west <- pollution$pm25 [pollution$region=="west"]
+t.test(var_east,var_west)
+pollution[1:134,]
+pollution[1:134,]
+var_east <- pollution$pm25 [pollution$region=="east"]
+var_west <- pollution$pm25 [pollution$region=="west"]
+t.test(var_east,var_west)
+?t.test
+data(airquality)
+data(airquality)
+savehistory("myfile")
+ls()
+setwd("Homework 1")# Indicates your current Working directory path
+setwd("C:/Users/raybe/Desktop/QMST 3339 Files/Homework 1")# Indicates your current Working directory path
+options()
+q()
+graphics.off()
+library(lattice)
+xyplot(pm25 ~ longitude | region, data = pollution, layout = c(1, 2))
+xyplot(pm25 ~ longitude | region, data = pollution, layout = c(2, 1))
+#http://rstudio-pubs-static.s3.amazonaws.com/20480_ed16ede2f1ca46beb2 c0e95dbfb1d5a1.html
+# Annual Average Pollution in the US
+pollution <- read.csv(file="avgpm25.csv")
+#pollution <- read.csv(file="avgpm25.csv",colClasses = c("numeric", "character", "factor", "numeric", "numeric"))
+# First five observations
+head(pollution,2)
+#Five Number Summary
+fivenum(pollution$pm25)
+# Boxplots
+boxplot(pollution$pm25, col = "red",main="Boxplot for Particle Pollution" ,ylim=c(0,20))
+#Multiple Boxplots
+boxplot(pm25 ~ region, data = pollution, col = "red")
+library(lattice)
+xyplot(pm25 ~ longitude | region, data = pollution, layout = c(1, 2))
+xyplot(pm25 ~ longitude | region, data = pollution, layout = c(2, 1))
+dev.off()
+library(lattice)
+xyplot(pm25 ~ longitude | region, data = pollution, layout = c(1, 2))
+xyplot(pm25 ~ longitude | region, data = pollution, layout = c(2, 1))
+sink()
+# Provide the five number summary, and the mean for Ozone
+fivenumsum <- fivenum(airquality)
+fivenumsum
+# Type the R script to display the first 4 records
+head(airquality, 4)
+# Type the R script to display the first 4 records
+firstfourobs <- head(airquality, 4)
+firstfourobs
+# What is the 10th percentile of Wind?
+tenthpercent <- quantile(airquality$Wind, c(.1))
+tenthpercent
+# What is the 10th percentile of Wind?
+tenthpercentwind <- quantile(airquality$Wind, c(.1))
+tenthpercentwind
+attach(airquality)
+# Type the R script to display the first 4 records
+firstfourobs <- head(airquality, 4)
+firstfourobs
+# What is the 10th percentile of Wind?
+tenthpercentwind <- quantile(airquality$Wind, c(.1))
+tenthpercentwind
+# Type the R script to display the first 4 records
+firstfourobs <- head(airquality, 4)
+firstfourobs
+# What is the 10th percentile of Wind?
+tenthpercentwind <- quantile(Wind, c(.1))
+tenthpercentwind
+# Provide the five number summary, and the mean for Ozone
+fivenumsum <- fivenum(airquality)
+fivenumsum
+#Mean of ozone layer, cutting out the NA values
+x = airquality$Ozone
+x
+is.na(x)
+mean(x, na.rm=T)
+summary(airquality)
+hist(airquality$Ozone)
+hist(airquality$Solar.R)
+data(airquality)
+?airquality
+"view(airquality)"
+attach(airquality)
+view(airquality)
+# Type the R script to display the first 4 records
+firstfourobs <- head(airquality, 4)
+firstfourobs
+# What is the 10th percentile of Wind?
+tenthpercentwind <- quantile(Wind, c(.1))
+tenthpercentwind
+# Provide the five number summary, and the mean for Ozone
+fivenumsum <- fivenum(airquality)
+fivenumsum
+View(firstfourobs)
+View(firstfourobs)
+View(firstfourobs)
+View(firstfourobs)
+#Mean of ozone layer, cutting out the NA values
+x = Ozone
+x
+is.na(x)
+mean(x, na.rm=T)
+ozoneMean <- mean(x, na.rm=T) # Calculates mean without nulls
+ozoneMean
+summary(airquality)
+hist(Ozone)
+hist(Solar.R)
+s1 = subset(airquality, Month == "5")
+View(airquality)
+?airquality
+may = subset(airquality, Month == "5")
+june = subset(airquality, Month == "6")
+t.test(may[1:30,],june[1:30,], alternative ="two.sided", var.equal = FALSE, mu=0)
+boxplot(s1, s2, par(mfrow=c(1,1)))
+boxplot(may, june, par(mfrow=c(1,1)))
+par(mfrow=c(1,2))
+boxplot(june)
+boxplot(may)
+graphics.off()
+# Provide a boxplot of Ozone with respect to month
+boxplot(x=airquality$Month,xlab = "Month", y=airquality$Ozone, ylab = "Ozone", col = "red", main = "Boxplot for Ozone Data Throughout Months")
+graphics.off()
+# Provide a boxplot of Ozone with respect to month
+boxplot(x=Month,xlab = "Month", y=airquality$Ozone, ylab = "Ozone", col = "red", main = "Boxplot for Ozone Data Throughout Months")
+graphics.off()
+# Provide a boxplot of Ozone with respect to month
+boxplot(x= Month,xlab = "Month", y= Ozone, ylab = "Ozone", col = "red", main = "Boxplot for Ozone Data Throughout Months")
+#Provide the histogram for Solar.r
+hist(airquality$Solar.R, col = "blue")
+graphics.off()
+#Provide the histogram for Solar.r
+hist(Solar.R, col = "blue")
+# Replicate figures 1 & 2, and present the script
+library(lattice)
+xyplot(Solar.R ~ Wind | Month, data  = airquality, layout = c(5,1)) # 5 columns and 2 rows
+xyplot(Solar.R ~ Wind | Month, data = airquality, layout = c(3,2)) # 3 columns and 2 rows
+xyplot(Solar.R ~ Wind | Month, data = airquality)
+savehistory("myfile")
+q(y)
